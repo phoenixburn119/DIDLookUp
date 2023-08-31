@@ -24,7 +24,7 @@ Function MicrosoftTeamsConnect {
 # Basic function used to generate logs and deposited into the AuditLog directory.
 function Write-Log {
     Param(
-        $Message,$Path = ".\AuditLog\Audit-Log $($env:username) $($(get-date).ToString("MM-dd-yyyy")).txt"
+        $Message,$Path = ".\Audit-Log $($env:username) $($(get-date).ToString("MM-dd-yyyy")).txt"
     )
 
     function TS {Get-Date -Format 'hh:mm:ss'}
@@ -93,4 +93,4 @@ for($idx = 0; $idx -lt $DIDSheet.count; $idx++ ) {
     NumberLookup -Number "$($DIDSheet[$idx].LineURI)"
     Get-Match
 }
-$DataCollector | export-csv -Path .\Resources\csv.csv
+$DataCollector | export-csv -Path .\csv.csv
